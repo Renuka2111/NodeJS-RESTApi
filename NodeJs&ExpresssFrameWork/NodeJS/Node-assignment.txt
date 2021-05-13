@@ -1,0 +1,222 @@
+1.Listening to PORT:
+var http=require('http')
+var server=http.createServer(function(req,res){
+    res.writeHead(200,{'Content-Type':'text/plain'});
+    res.end("Hello World");
+});
+server.listen(3000,'127.0.0.1');
+console.log("Success, i'm listening from port:3000");
+
+2.Show Content:
+var fs =require('fs');
+var readMe=fs.readFileSync('test.txt','utf8');
+console.log(readMe);
+output:
+C:\Users\RENUKA\Desktop\npm>node app
+Helllo guys!!!!!
+This node-js assignment of reading a file.
+
+3.File List:
+var fs =require('fs');
+
+let directory_name="node_modules";
+let filenames=fs.readdirSync(directory_name);
+console.log('\nFilenames in directory:');
+filenames.forEach((file)=>
+{
+    console.log("File:",file);
+})
+var stat=fs.statSync("node_modules");
+console.log("Is directory?"+stat.isDirectory());
+output:
+Filenames in directory:
+File: .bin
+File: lodash
+Is directory?true
+
+4.&10.Writing into a file:
+var fs =require('fs');
+fs.writeFileSync('write.txt','hey ho!Lets go');
+
+5.Compare Values:
+const fs=require('fs');
+
+let file=fs.readFileSync('xyz.txt','utf-8')
+let arr=file.split(",");
+let count=0;
+arr.forEach(word=>{
+    if(word.includes('John'))
+    { count++;}
+    
+})
+console.log(count);
+C:\Users\RENUKA\Desktop\npm>node app
+2
+
+6.Calculator:
+phase-1:
+mainFile:app1.js:
+var stuff=require('./calculator');
+console.log(stuff.count(15,3));
+console.log(stuff.multiply(15,3));
+calculatorFile:
+var count =function(a,b) {
+    var sum=a+b
+    return sum;
+};
+var multiply=function (a,b) {
+    var m=a*b;
+    return m;
+}
+
+module.exports.count=count;
+module.exports.multiply=multiply;
+output:C:\Users\RENUKA\Desktop\npm>node app1
+18
+45
+
+phase=2
+mainFile=app1.js:var sub=require('./sub');
+var multiply=require('./mul');
+var div=require('./div');
+var count=require('./sum');
+console.log(count(15,3));
+console.log(multiply(15,3));
+console.log(div(15,3));
+console.log(sub(15,3));
+//SumFile=sum.js:
+var count =function(a,b) {
+    var sum=a+b
+    return sum;
+};
+module.exports=count;
+//SubFile=sub.js:
+var sub=function (a,b) {
+    var sub=a-b;
+    return sub;}
+module.exports=sub;
+//MulFile=mul.js:
+var multiply=function (a,b) {
+    var m=a*b;
+    return m;}
+module.exports=multiply;
+//divFile=div.js:
+var div=function (a,b) {
+    var d=a/b;
+    return d;}
+module.exports=div;
+output:C:\Users\RENUKA\Desktop\npm>node app1
+18
+45
+5
+12
+phase-3:
+const moment=require('moment');
+const today=moment();
+console.log('Today is: '+today.format('dddd, Do MMMM YYYY ,hh:mm:ss a'));
+output:C:\Users\RENUKA\Desktop\npm>node app1
+Today is: Tuesday, 27th April 2021 ,11:14:48 pm
+
+7.Show Hour:
+var strftime=require('strftime');
+function time(){
+    var d=new Date();
+    return strftime('%Y-%m-%d: %H:%M',d);
+}
+console.log(time());
+output:
+C:\Users\RENUKA\Desktop\npm>node app
+2021-04-26: 18:30
+
+8.Sum of integers:
+var fs =require('fs');
+
+fs.readFile('abc.txt','utf8',(err1,data1)=>{
+    var d=data1.split(",");
+    var p;
+    var sum=0;
+    for(let i=0;i<d.length;i++){
+        var p=parseInt(d[i]);
+        sum=sum+p;
+    }
+    console.log(sum);
+   
+    }
+)
+output:20
+
+9.Processing Values:
+var fs=require('fs');
+var fileread='test.txt';
+console.log('Rading file'+fileread+'..');
+fs.readFile(fileread,'utf8',function (err,contentFile){
+    if(err){
+        console.log(err);
+    }
+    console.log('Returning the value of the as a array:::');
+    var acontentFile=contentFile.split(' ');
+    console.log(acontentFile);
+    
+})
+test.txt:
+Helllo guys!!!!!
+This node-js assignment of reading a file.
+output:
+C:\Users\RENUKA\Desktop\npm>node app1
+Rading filetest.txt..
+Returning the value of the as a array:::
+[
+  'Helllo',
+  'guys!!!!!\r\nThis',
+  'node-js',
+  'assignment',
+  'of',
+  'reading',
+  'a',
+  'file.'
+]
+
+11.Reading from a file
+var fs =require('fs');
+var readMe=fs.readFileSync('xyz.txt','utf-8');
+console.log(readMe);
+output:
+C:\Users\RENUKA\Desktop\npm>node app
+[John Riya Priya Sarah Sanjana]
+
+12.Getting current Date and Time:
+var today=new Date();
+var date=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+var dateTime=date+' '+time
+console.log(dateTime);
+
+13.
+var events =require('events');
+var util=require('util');
+
+var Person=function(name){
+    this.name=name;
+};
+
+util.inherits(Person, events.EventEmitter);
+
+var jerry =new Person('jerry');
+var Arnav=new Person('Arnav');
+var people=[jerry , Arnav];
+
+people.forEach(function(person){
+    person.on('speak',function(msg){
+        console.log(msg+person.name+'!');
+    });
+});
+
+jerry.emit('speak','Hello, ');
+Arnav.emit('speak','Hello, ');
+output:
+C:\Users\RENUKA\Desktop\npm>node app
+Hello, jerry!
+Hello, Arnav!
+
+
+

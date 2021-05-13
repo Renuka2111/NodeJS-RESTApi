@@ -1,0 +1,167 @@
+Express Framework Assignment Testing:
+TestCases For above questions:
+1.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should display hello world successfully',function(done){
+        requester
+            .get('/')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+})
+
+2.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should accept year as id successfully',function(done){
+        requester
+            .get('/year/:id')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+})
+
+3.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should display hello world at /home successfully',function(done){
+        requester
+            .get('/home')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+})
+
+4.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should display hello world successfully',function(done){
+        requester
+            .get('/')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+    it('should show the date successfully',function(done){
+        requester
+            .get('/time')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+    
+})
+
+5.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should run GET successfully',function(done){
+        requester
+            .get('/')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+    it('should reverse the input string successfully',function(done){
+        requester
+            .post('/contact')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+})
+
+8.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should display date successfully',function(done){
+        requester
+            .get('/home')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+    
+})
+
+9.
+const app=require('../index'),
+      chai =require('chai'),
+      chaiHttp=require('chai-http'),
+      expect=chai.expect;
+chai.use(chaiHttp);
+
+const url='http://localhost:3000/',
+      requester=chai.request.agent(url);
+
+describe('Testing index file',function(){
+    it('should read the file successfully',function(done){
+        requester
+            .get('/')
+            .end(function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            })
+    })
+    
+})

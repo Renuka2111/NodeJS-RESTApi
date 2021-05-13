@@ -1,0 +1,160 @@
+1.Hello World at root URl:
+var express=require('express');
+var app=express();
+app.get('/',function(req,res){
+    res.send('Hello, world!');
+});
+app.listen(3000);
+
+2.Tell the year you were born:
+var express=require('express');
+var app=express();
+app.get('/year/:id',function(req,res){
+    res.send('You were born in '+req.params.id);
+});
+app.listen(3000);
+
+3.Hello World at /home URl:
+var express=require('express');
+var app=express();
+app.get('/home',function(req,res){
+    res.send('Hello World');
+});
+app.listen(3000);
+
+4.Use of GET request:
+var express=require('express');
+var http=require('http');
+
+var app=express();
+var server=http.createServer(app);
+
+app.get('/',function(req,res){
+    res.send('Hello World');
+});
+app.get('/time',function(req,res){
+    res.send(Date());
+});
+server.listen(3000);
+console.log('PORT:',server.address().port);
+
+5.Traditional webform:
+index.js:
+const bodyParser=require('body-parser');
+var express=require('express');
+var app=express();
+var path=require('path');
+
+var urlencodedParser=bodyParser.urlencoded({extended:false});
+app.use(urlencodedParser)
+
+app.post('/contact',(req,res)=>{
+    var name=req.body.user.split('').reverse().join('');
+    res.send('the username is '+name);
+});
+
+app.get('/',(req,res)=>{
+    res.sendFile('index.html',{root:path.join()});
+})
+app.listen(3000);
+
+HTMLFile:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Page</title>
+        <style>
+            form{ text-align: center; margin-top: 20%;}
+            body{ background-color:burlywood;}
+        </style>
+    </head>
+    <body>
+        <form action="/contact" method="POST">
+           Username:<input type="text" name="user"><br><br>
+           
+           <input type="submit" value="submit">
+        </form>
+    </body>
+</html>
+
+6.Express server static files:
+var express=require('express');
+
+var app=express();
+
+app.use(express.static('public'))
+
+app.listen(3000);
+HTMLFile:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <img src="image.jpg">
+        <h1>Welcome to my Page</h1>
+        <p>THis is most amzing page</p>
+    </body>
+</html>
+CSSFile:
+img{
+    background-color: aqua; width: 50%; align-items: center;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+}
+p{
+    font-family: sans-serif;
+    color: seagreen;
+}
+
+7.In Shopping Folder
+
+8.Pug Template Engine:
+index.js File:
+var express=require('express');
+
+var app=express();
+app.set('view engine','pug')
+
+app.get('/home',function(req,res){
+    res.render('index',{date:new Date().toDateString()})
+    
+})
+app.listen(3000);
+index.pug File:
+html 
+head 
+title =title 
+body 
+    h1 Hello World 
+    p Today is #{date}.
+
+9.JSON:
+var express=require('express');
+
+var app=express();
+
+var fs =require('fs');
+
+var readMe=fs.readFileSync('test.txt','utf8');
+
+
+app.get('/',function(req,res){
+    res.json(readMe)
+})
+
+app.listen(3000);
+console.log(readMe);
+ConsoleOutput:
+C:\Users\RENUKA\Desktop\Practice-express>node index
+Fname:Renuka
+Lname:Deshpande
+Age:23
+Occupation:Developer
+5.Hobbies-[Singing, Writing ,Dancing]
+ServerOutput:"Fname:Renuka\r\nLname:Deshpande\r\nAge:23\r\nOccupation:Developer\r\n5.Hobbies-[Singing, Writing ,Dancing]"
+

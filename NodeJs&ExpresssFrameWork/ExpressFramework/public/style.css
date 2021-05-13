@@ -1,0 +1,11 @@
+img{
+    background-color: aqua; width: 50%; align-items: center;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+}
+p{
+    font-family: sans-serif;
+    color: seagreen;
+}
